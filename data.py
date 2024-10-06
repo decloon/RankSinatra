@@ -44,31 +44,36 @@ def get_random_question():
     random_question = questions_collection.aggregate([{"$sample": {"size": 1}}])
     
     # The result is an iterable, so we need to retrieve the first (and only) item
-    return next(random_question, None)
-def ask_question():
-    question_doc = get_random_question()  # Fetch a random question
 
-    if question_doc:
+    return    next(random_question, None)
+def ask_question(question_result):
+    # question_doc = get_random_question()  # Fetch a random question
+    bot_query = question_result['questions']
+    
+    if question_result:
         # Display the question and choices
-        print(f"Question: {question_doc['questions']}")
-        print("Choices:")
-        for key, value in question_doc['choices'].items():
-            print(f"{key}: {value}")
-
-        # Get the user's answer
-        user_answer = input("Please enter your answer (a, b, c): ").lower()
-
-        # Check if the answer matches the correct answer
-        correct_answer = question_doc['answers']
-        if user_answer == correct_answer:
-            print("Correct answer!")
-            # Add a point to the user's score
-        else:
-            print("Incorrect answer.")
-    else:
-        print("No questions available.")
-
+        temp_quest = f"Question: {question_result['questions']}"
+        choice = "Choices:"
+        rar = []
+        for key, value in question_result['choices'].items():
+            rar.append(key)
+            rar.append(value)
         
+        return f'{temp_quest}\n{choice}\n{rar[0]} {rar[1]} \n{rar[2]} {rar[3]} \n{rar[4]} {rar[5]}'
+
+
+    # return bot_query
+
+# def get_ans_data(question_result):
+#     user_answer = input("Please enter your answer (a, b, c): ").lower()
+
+#         # Check if the answer matches the correct answer
+#     correct_answer = question_result['answers']
+#     if user_answer == correct_answer:
+#         return("Correct answer!")
+#         # Add a point to the user's score
+#     else:
+#         return "Incorrect answer." 
 def main():
     # get_all_names()
     # get_all_questions()

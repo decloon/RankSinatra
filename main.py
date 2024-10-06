@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from discord import Intents, Client, Message, Member
 from discord.ext import commands
 from responses import get_response
-from data import collection
+from data import users_collection
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -20,7 +20,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def add_points(ctx, member: Member, points: int):
     """Add points to a user."""
     # Update the user's points in the database
-    collection.update_one(
+    users_collection.update_one(
         {'user_id': member.id},
         {'$inc': {'points': points}},
         upsert=True
@@ -33,6 +33,8 @@ async def send_message(message: Message, user_message: str, channel: str) -> Non
         return
 
     user_message = user_message
+    # if user_message == "a" or user_message == "b" or user_message == "c":
+        
 
     try:
         response: str = get_response(user_message)
@@ -50,6 +52,7 @@ async def on_message(message) -> None:
     username = str(message.author)
     usermessage = message.content
     channel = await message.guild.fetch_channel(channel_id)
+
 
     if message.channel != channel:
         return
