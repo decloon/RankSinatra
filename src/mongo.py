@@ -45,6 +45,11 @@ def get_random_question():
     random_question = questions_collection.aggregate([{"$sample": {"size": 1}}])
     return next(random_question, None)
 
+def get_answer():
+    """Fetch a random question from the questions collection."""
+    random_question = (questions_collection.aggregate([{"$sample": {"size": 1}}]))
+    return random_question, None
+
 def ask_question(question_result):
     """Format a question and its choices for display."""
     if question_result:

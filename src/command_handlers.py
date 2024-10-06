@@ -1,8 +1,10 @@
 from mongo import users_collection
-from mongo import ask_question , get_random_question 
+from mongo import ask_question , get_random_question, get_answer
 import discord
 import utils
 import json
+ans = []
+i = -1
 
 class SimpleView(discord.ui.View):
     def __init__(self):
@@ -36,6 +38,9 @@ def handle_question_query():
     question = random_question['questions']
     choices = random_question['choices']
     correct_choice = random_question['answers']
-    
+    ans.append(correct_choice)
     
     return question, choices, correct_choice
+
+def handle_answer_query():
+    return ans[i]

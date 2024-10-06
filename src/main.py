@@ -55,9 +55,16 @@ async def send_message(message: Message, usermessage: str, channel) -> None:
     if usermessage == '!question':
         question, choices, correct_choice = handle_question_query()
 
-        view = QuestionView(correct_choice)
+        # view = QuestionView(correct_choice)
         await channel.send(f'{question}\nA: {choices["a"]}\nB: {choices["b"]}\nC: {choices["c"]}\n')
 
+    if usermessage in 'abc':
+        answer = handle_answer_query()
+        print(answer)
+        if answer == usermessage:
+            await channel.send('Correct')
+        else:
+            await channel.send('Incorrect')
 # Main function to run the bot
 def main() -> None:
     client.run(TOKEN)
