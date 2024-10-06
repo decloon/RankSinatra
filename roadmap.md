@@ -8,4 +8,10 @@
      - chalengee answers challenges and has the questions graded instantly.
      - member participation can be determined based on if they have specific verified role. 
      - there is a public leaderboard that gets refreshed every minute.
+- nice to have features:
+     - pings for challenge reminders
+     - ability to create different types of challenges
+     - challenging solo members for a duel?
+     - 3v3 or 5v5 clash royal style?
+     - spectate? get a live feed of what happening. 
      - 
