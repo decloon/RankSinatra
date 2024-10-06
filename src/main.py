@@ -4,6 +4,7 @@ import signal
 from dotenv import load_dotenv
 from discord import Intents, Client, Message, Member
 from command_handlers import *
+import asyncio
 
 
 load_dotenv()
@@ -48,22 +49,14 @@ async def send_message(message: Message, usermessage: str, channel) -> None:
     
     if usermessage == '!leaderboard':
         leaderboard = handle_leaderboard_query()
-        # return  handle_leaderboard_query()
+
         await channel.send(leaderboard)
-    elif usermessage == '!question':
-        question = handle_question_query()
-        print("in the main file",handle_question_query())
-        await channel.send(question)
-        # return handle_question_query()
         
+    if usermessage == '!question':
+        question, choices, correct_choice = handle_question_query()
 
-    # if usermessage[0] == "!":
-    #     return "nothing"
-
-# Signal handler to gracefully shutdown the bot
-def signal_handler(signal, frame):
-    print("Shutting down...")
-    client.close()
+        view = QuestionView(correct_choice)
+        await channel.send(f'{question}\nA: {choices["a"]}\nB: {choices["b"]}\nC: {choices["c"]}\n')
 
 # Main function to run the bot
 def main() -> None:

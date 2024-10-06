@@ -2,6 +2,18 @@ from mongo import users_collection
 from mongo import ask_question , get_random_question 
 import discord
 import utils
+import json
+
+class SimpleView(discord.ui.View):
+    def __init__(self):
+        super().__init__()
+        self.value = None
+
+    @discord.ui.button(label='Press me!', style=discord.ButtonStyle.primary)
+    async def press_button(self, button: discord.ui.Button, interaction: discord.Interaction):
+        self.value = True
+        await interaction.response.send_message('Button pressed!', ephemeral=True)
+        self.stop()
 
 def handle_leaderboard_query():
     users = list(users_collection.find().sort('points', -1).limit(10))
@@ -21,9 +33,9 @@ def handle_question_query():
     print("yall pretend like this is a question")
     random_question = get_random_question()
     print(random_question)
-    question_text = random_question['questions']
+    question = random_question['questions']
     choices = random_question['choices']
-    correct_answer = random_question['correct_answer']
+    correct_choice = random_question['answers']
     
     
-    return f'{question_text}: {choices}; {correct_answer}'
+    return question, choices, correct_choice
