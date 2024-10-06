@@ -24,6 +24,47 @@
     "c":"CREATE READ UPDATE DELETE"
 },
 "answers" : "c"
+},
+
+{"questions" : "The advantage of a linear search is its ____________",
+"choices" : {
+    "a":"complexity",
+    "b":" efficiency",
+    "c":" simplicity"
+},
+"answers" : "c"
+},
+{"questions" : "A ________ search is more efficient than a ________ search.",
+"choices" : {
+    "a":"character, string",
+    "b":" integer, double",
+    "c":"binary, linear"
+},
+"answers" : "c"
+},
+{"questions" : "When you work with a dereferenced pointer, you are actually working with",
+"choices" : {
+    "a":" a variable whose memory has been allocated",
+    "b":" a copy of the value pointed to by the pointer variable",
+    "c":"the actual value of the variable whose address is stored in the pointer variable"
+},
+"answers" : "c"
+},
+{"questions" : "The __________, also known as the address operator, returns the memory address of a variable.",
+"choices" : {
+    "a":" asterisk (* )",
+    "b":" ampersand ( & )",
+    "c":" percent sign ( % )"
+},
+"answers" : "b"
+},
+{"questions" : "A function may return a pointer but the programmer must ensure that the pointer",
+"choices" : {
+    "a":"still points to a valid object after the function ends",
+    "b":" has not been assigned an address",
+    "c":" was received as a parameter by the function"
+},
+"answers" : "a"
 }
 ]
 
