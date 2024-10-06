@@ -21,7 +21,7 @@
 "choices" : {
     "a":"CREATE READ UPDATE DESTROY",
     "b":"CRY READ UPDATE DROP",
-    "c":"CRREATE READ UPDATE DELETE"
+    "c":"CREATE READ UPDATE DELETE"
 },
 "answers" : "c"
 }
