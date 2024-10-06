@@ -18,4 +18,5 @@ def handle_leaderboard_query():
 def handle_question_query():
         random = get_random_question()
         mine = ask_question(random)
+        print(mine)
         return f'{mine}'
