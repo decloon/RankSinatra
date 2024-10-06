@@ -1,0 +1,29 @@
+[
+{"questions" : "An array in c++ is",
+"choices" : {
+    "a":"is dynamic and does not require a size at compile time",
+    "b":"is static and requires a valid size at compile time",
+    "c":"is formatted in the patten of key-value pairs"
+},
+"answers" : "c"
+},
+
+{"questions" : "An dictionary in python is",
+"choices" : {
+    "a":"a hash map where the relationship is key-value pairs",
+    "b":"a dynamic array that is resized when the array is full",
+    "c":"a linked list where each node is a pointer to the next value in the array"
+},
+"answers" : "a"
+},
+
+{"questions" : "What is CRUD",
+"choices" : {
+    "a":"CREATE READ UPDATE DESTROY",
+    "b":"CRY READ UPDATE DROP",
+    "c":"CRREATE READ UPDATE DELETE"
+},
+"answers" : "c"
+}
+]
+
