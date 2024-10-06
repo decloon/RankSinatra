@@ -60,6 +60,10 @@ async def send_message(message: Message, usermessage: str, channel) -> None:
     # if usermessage[0] == "!":
     #     return "nothing"
 
+# Signal handler to gracefully shutdown the bot
+def signal_handler(signal, frame):
+    print("Shutting down...")
+    client.close()
 
 # Main function to run the bot
 def main() -> None:
