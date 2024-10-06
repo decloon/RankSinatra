@@ -62,9 +62,12 @@ async def send_message(message: Message, usermessage: str, channel) -> None:
         answer = handle_answer_query()
         print(answer)
         if answer == usermessage:
-            await channel.send('Correct')
+            await channel.send('Correct, +1 point')
+
         else:
             await channel.send('Incorrect')
+    else :
+        return 
 # Main function to run the bot
 def main() -> None:
     client.run(TOKEN)
