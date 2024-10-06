@@ -1,0 +1,11 @@
+## tasks
+- it can help manage challenges
+     - members can create a challenge.
+     - members can participate
+     - members get points from answering correct
+     - leaderboard uses elo ranking for simplicity. can be swapped out later
+     - "challenger" adds a bank of qeustions and corresponding correct answers. 
+     - chalengee answers challenges and has the questions graded instantly.
+     - member participation can be determined based on if they have specific verified role. 
+     - there is a public leaderboard that gets refreshed every minute.
+     - 
